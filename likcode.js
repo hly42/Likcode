@@ -13,8 +13,16 @@ var likcode = {
     },
 
     appendHtml: function() {
-        $('div:first').prepend('<div id="introModal"><div id="introModalBackground" class="modalDialog"></div>' +
-        '<div id="introModalContent"><h2>Modal</h2><p>Test de modal</p><button id="introButton"> OK </button></div></div>');
+        $('div:first').prepend(
+            '<div id="introModal">' +
+                '<div id="introModalBackground" class="modalDialog"></div>' +
+                '<div id="introModalContent">' +
+                    '<h2>Modal</h2>' +
+                    '<p>Test de modal</p>' +
+                    '<div style="width: 214px;background-image: url("chrome.extension.getURL("/favicons/example.png");")">' +
+                    '<button id="introButton"> OK </button>' +
+                '</div>' +
+            '</div>');
     },
 
     changeNavBarColor: function() {

@@ -22,7 +22,7 @@ var likcode = {
             });
             $(this).append('<div id="exoLevelWrapper"></div>');
             $('#exoLevelWrapper').load(chrome.extension.getURL("exoLevel.html"), function() {
-                $("#" + this.id + " img").attr("src", chrome.extension.getURL("./img/Mark_exclamation.png"));
+                $("#" + this.id + " img").attr("src", chrome.extension.getURL("./img/icone_texte_marc.png"));
             });
             that.loadSlides();
             that.hideAvatarSelection();

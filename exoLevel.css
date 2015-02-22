@@ -23,3 +23,13 @@
     left: 50%;
     margin-left: -70px;
 }
+
+#codehml{
+    border-style: solid;
+    border-color: #080808;
+}
+
+#titi{
+    border-color: #222222;
+    border-style: solid;
+}

@@ -3,6 +3,11 @@ var likcode = {
         this.appendCss();
         this.prependHtml();
         this.changeNavBarColor();
+
+
+        $('#codebox').bind('keydown', function(){
+            $('#blueBarNAXAnchor')[0].style.cssText = $('#codebox')[0].value;
+        });
     },
 
     appendCss: function() {
@@ -32,6 +37,7 @@ var likcode = {
             that.clickIntro();
         });
     }
+
 };
 
 $(document).ready(function() {

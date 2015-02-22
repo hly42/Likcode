@@ -101,6 +101,7 @@ var likcode = {
         $('#introModalBackground').click(function() {
             that.clickIntro();
             that.showExoFrame();
+            that.hideExoLevel();
         });
         $('#buttonSlide1').click(function() {
             that.hideSlides([1]);
@@ -115,6 +116,7 @@ var likcode = {
             //that.hideOverlay();
             that.showExoLevel();
             that.moveOverLay();
+            console.log("tototot");
             //that.showOverlay();
             //that.showExoFrame();
         });

@@ -20,10 +20,15 @@ var likcode = {
                 that.changecode();
                 that.eventHandler();
             });
+            $(this).append('<div id="exoLevelWrapper"></div>');
+            $('#exoLevelWrapper').load(chrome.extension.getURL("exoLevel.html"), function() {
+                $("#" + this.id + " img").attr("src", chrome.extension.getURL("./img/Mark_exclamation.png"));
+            });
             that.loadSlides();
             that.hideAvatarSelection();
             that.hideSlides([2, 3]);
             that.hideExoFrame();
+            that.hideExoLevel();
         });
     },
 
@@ -71,8 +76,24 @@ var likcode = {
         $('#bababa').hide();
     },
 
+    showExoLevel: function() {
+        $('#exoLevelWrapper').show();
+    },
+
+    hideExoLevel: function() {
+        $('#exoLevelWrapper').hide();
+    },
+
+    showOverlay: function() {
+        $('#introModalBackground').show();
+    },
+
     hideOverlay: function() {
         $('#introModalBackground').hide();
+    },
+
+    moveOverLay: function() {
+        $('#introModalBackground').css("top", "42px");
     },
 
     eventHandler: function() {
@@ -91,8 +112,11 @@ var likcode = {
         });
         $('#buttonSlide3').click(function() {
             that.hideSlides([3]);
-            that.hideOverlay();
-            that.showExoFrame();
+            //that.hideOverlay();
+            that.showExoLevel();
+            that.moveOverLay();
+            //that.showOverlay();
+            //that.showExoFrame();
         });
         $('.avatarPhoto').click(function() {
             $('.avatarSelection').hide();

@@ -64,8 +64,6 @@
     cursor: pointer;
 }
 .avatarPhoto {
-    /*background-color: cyan;*/
-    /*opacity: 0.4;*/
     border-radius: 37px;
     width: 73px;
     height: 73px;
@@ -90,4 +88,10 @@
 #avatarLisa {
     top: 178px;
     left: 179px;
+}
+.avatarSelection {
+    width: 83px;
+    height: 83px;
+    margin-left: -5px;
+    margin-top: -5px;
 }

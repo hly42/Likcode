@@ -15,6 +15,7 @@ var likcode = {
         $('#likcodeWrapper').load(chrome.extension.getURL("introModal.html"), function() {
             that.eventHandler();
             that.loadSlides();
+            that.hideAvatarSelection();
             that.hideSlides([2, 3]);
         });
     },
@@ -36,6 +37,7 @@ var likcode = {
         $('#avatarMario').css("background", "url(" + chrome.extension.getURL("img/mario_seul.png") + ")");
         $('#avatarElsa').css("background", "url(" + chrome.extension.getURL("img/elsa_seul.png") + ")");
         $('#avatarLisa').css("background", "url(" + chrome.extension.getURL("img/lisa_seul.png") + ")");
+        $('.avatarSelection').css("background", "url(" + chrome.extension.getURL("img/cercle_seul.png") + ")");
     },
 
     showSlides: function(num) {
@@ -48,6 +50,10 @@ var likcode = {
         num.forEach(function(nu) {
             $('#introModalContent' + nu).hide();
         });
+    },
+
+    hideAvatarSelection: function() {
+        $('.avatarSelection').hide();
     },
 
     eventHandler: function() {
@@ -67,7 +73,8 @@ var likcode = {
             that.hideSlides([3]);
         });
         $('.avatarPhoto').click(function() {
-            //$(this).
+            $('.avatarSelection').hide();
+            $("#" + this.id + " .avatarSelection").show();
         });
     }
 };

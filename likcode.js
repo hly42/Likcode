@@ -22,6 +22,7 @@ var likcode = {
             that.loadSlides();
             that.hideAvatarSelection();
             that.hideSlides([2, 3]);
+            that.hideExoFrame();
         });
     },
 
@@ -61,6 +62,18 @@ var likcode = {
         $('.avatarSelection').hide();
     },
 
+    showExoFrame: function() {
+        $('#bababa').show();
+    },
+
+    hideExoFrame: function() {
+        $('#bababa').hide();
+    },
+
+    hideOverlay: function() {
+        $('#introModalBackground').hide();
+    },
+
     eventHandler: function() {
         var that = this;
         $('#introModalBackground').click(function() {
@@ -76,6 +89,8 @@ var likcode = {
         });
         $('#buttonSlide3').click(function() {
             that.hideSlides([3]);
+            that.hideOverlay();
+            that.showExoFrame();
         });
         $('.avatarPhoto').click(function() {
             $('.avatarSelection').hide();

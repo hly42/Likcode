@@ -25,6 +25,8 @@
         "introModal.html",
         "introModal.css",
         "img/*",
-        "exoFrame.html"
+        "exoFrame.html",
+        "exoFrame.css"
+
     ]
 }

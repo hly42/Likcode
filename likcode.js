@@ -22,7 +22,15 @@ var likcode = {
             });
             $(this).append('<div id="exoLevelWrapper"></div>');
             $('#exoLevelWrapper').load(chrome.extension.getURL("exoLevel.html"), function() {
-                $("#" + this.id + " img").attr("src", chrome.extension.getURL("./img/icone_texte_marc.png"));
+                $("#imgTips").attr("src", chrome.extension.getURL("./img/icone_texte_marc.png")).click(function() {
+                    $(this).hide();
+                    that.showExoFrame();
+                    that.hideOverlay();
+                });
+                $("#imglevel").attr("src", chrome.extension.getURL("./img/Mark_exclamation.png")).click(function() {
+                    $(this).hide();
+                    $("#imgTips").show();
+                });
             });
             that.loadSlides();
             that.hideAvatarSelection();
@@ -96,13 +104,17 @@ var likcode = {
         $('#introModalBackground').css("top", "42px");
     },
 
+    showCongrats: function() {
+        $('#congrats').show();
+    },
+
     eventHandler: function() {
         var that = this;
-        $('#introModalBackground').click(function() {
-            that.clickIntro();
-            that.showExoFrame();
-            that.hideExoLevel();
-        });
+        //$('#introModalBackground').click(function() {
+        //    that.clickIntro();
+        //    that.showExoFrame();
+        //    that.hideExoLevel();
+        //});
         $('#buttonSlide1').click(function() {
             that.hideSlides([1]);
             that.showSlides([2]);
@@ -115,8 +127,8 @@ var likcode = {
             that.hideSlides([3]);
             //that.hideOverlay();
             that.showExoLevel();
+            $('#imgTips').hide();
             that.moveOverLay();
-            console.log("tototot");
             //that.showOverlay();
             //that.showExoFrame();
         });
@@ -126,6 +138,7 @@ var likcode = {
         });
         $('#exoMentor').click(function() {
             that.hideExoFrame();
+            that.showCongrats();
             that.saveChanges();
         });
     },

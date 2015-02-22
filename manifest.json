@@ -27,6 +27,8 @@
         "introModal.css",
         "img/*",
         "exoFrame.html",
-        "exoFrame.css"
+        "exoFrame.css",
+        "exoLevel.html",
+        "exoLevel.css"
     ]
 }

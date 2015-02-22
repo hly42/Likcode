@@ -6,6 +6,7 @@ var likcode = {
 
     appendCss: function() {
         $('head').append('<link href="' + chrome.extension.getURL("introModal.css") + '" rel="stylesheet" type="text/css">')
+            .append('<link href="' + chrome.extension.getURL("exoLevel.css") + '" rel="stylesheet" type="text/css">')
             .append('<link href="' + chrome.extension.getURL("exoFrame.css") + '" rel="stylesheet" type="text/css">');
     },
 

@@ -1,0 +1,25 @@
+
+.exolevel {
+    position: fixed;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
+}
+#introLevel {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+#Level{
+    /*width: 50%;*/
+    /*height: 50%;*/
+    /*border-radius: 10px;*/
+    z-index: 4242;
+    /*overflow: hidden;*/
+    position: absolute;
+    left: 50%;
+    margin-left: -70px;
+}

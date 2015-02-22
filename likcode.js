@@ -29,8 +29,13 @@ var likcode = {
 
     loadSlides: function() {
         $('#introModalContent1').css("background", "url(" + chrome.extension.getURL("img/Home_page.png") + ")");
-        $('#introModalContent2').css("background", "url(" + chrome.extension.getURL("img/page_1.png") + ")");
+        $('#introModalContent2').css("background", "url(" + chrome.extension.getURL("img/page_sans_mentor.png") + ")");
         $('#introModalContent3').css("background", "url(" + chrome.extension.getURL("img/page_2.png") + ")");
+        $('#avatarMark').css("background", "url(" + chrome.extension.getURL("img/mark_seul.png") + ")");
+        $('#avatarVador').css("background", "url(" + chrome.extension.getURL("img/Dark_seul.png") + ")");
+        $('#avatarMario').css("background", "url(" + chrome.extension.getURL("img/mario_seul.png") + ")");
+        $('#avatarElsa').css("background", "url(" + chrome.extension.getURL("img/elsa_seul.png") + ")");
+        $('#avatarLisa').css("background", "url(" + chrome.extension.getURL("img/lisa_seul.png") + ")");
     },
 
     showSlides: function(num) {
@@ -60,6 +65,9 @@ var likcode = {
         });
         $('#buttonSlide3').click(function() {
             that.hideSlides([3]);
+        });
+        $('.avatarPhoto').click(function() {
+            //$(this).
         });
     }
 };

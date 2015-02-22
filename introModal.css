@@ -63,3 +63,31 @@
     bottom: 0;
     cursor: pointer;
 }
+.avatarPhoto {
+    /*background-color: cyan;*/
+    /*opacity: 0.4;*/
+    border-radius: 37px;
+    width: 73px;
+    height: 73px;
+    position: absolute;
+}
+#avatarMark {
+    top: 105px;
+    left: 116px;
+}
+#avatarVador {
+    top: 105px;
+    left: 239px;
+}
+#avatarMario {
+    top: 105px;
+    left: 361px;
+}
+#avatarElsa {
+    top: 178px;
+    left: 298px;
+}
+#avatarLisa {
+    top: 178px;
+    left: 179px;
+}

@@ -20,5 +20,10 @@
             "js": ["tools/jquery-2.1.3.js", "likcode.js"],
             "run_at": "document_start"
         }
+    ],
+    "web_accessible_resources": [
+        "introModal.html",
+        "introModal.css",
+        "42c.png"
     ]
 }

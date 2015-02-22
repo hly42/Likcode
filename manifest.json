@@ -24,6 +24,7 @@
     "web_accessible_resources": [
         "introModal.html",
         "introModal.css",
-        "42c.png"
+        "img/*",
+        "exoFrame.html"
     ]
 }

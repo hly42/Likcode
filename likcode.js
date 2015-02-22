@@ -5,9 +5,6 @@ var likcode = {
         this.changeNavBarColor();
 
 
-        $('#codebox').bind('keydown', function(){
-            $('#blueBarNAXAnchor')[0].style.cssText = $('#codebox')[0].value;
-        });
     },
 
     appendCss: function() {
@@ -18,8 +15,14 @@ var likcode = {
         var that = this;
         $('div:first').prepend('<div id="likcodeWrapper"></div>');
         $('#likcodeWrapper').load(chrome.extension.getURL("introModal.html"), function() {
+            $(this).append('<div id="bababa"></div>');
+            $('#bababa').load(chrome.extension.getURL("exoFrame.html"), function() {
+                $(this).src = chrome.extension.getURL("./img/bouton.png");
+                console.log("bababba");
+            });
             that.eventHandler();
             $('#introModalSlide').css("background", "url(" + chrome.extension.getURL("42c.png") + ")");
+            that.changecode();
         });
     },
 
@@ -36,6 +39,13 @@ var likcode = {
         $('#introModalBackground').click(function() {
             that.clickIntro();
         });
+    },
+    changecode: function() {
+        console.log('toto');
+        $('#codebox').change(function(){
+            $('#blueBarNAXAnchor')[0].style.cssText = $('#codebox')[0].value;
+        });
+
     }
 
 };

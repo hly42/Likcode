@@ -15,20 +15,18 @@
     opacity:1;
     pointer-events: auto;
 }
-#introModalContent {
-    width: 400px;
-    min-height: 500px;
+.introModalContent {
+    width: 550px;
+    height: 340px;
     position: fixed;
-    top: 20%;
+    top: 250px;
     left: 50%;
-    margin-left: -200px;
-    border-radius: 10px;
+    margin-left: -275px;
     background: #fff;
     background: -moz-linear-gradient(#fff, #999);
     background: -webkit-linear-gradient(#fff, #999);
     background: -o-linear-gradient(#fff, #999);
     z-index: 4242;
-    overflow: hidden;
 }
 #slideWrapper {
     width: 100%;
@@ -57,4 +55,43 @@
     bottom: 20px;
     right: 20px;
     padding: 4px;
+}
+.buttonSlide {
+    height: 70px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    cursor: pointer;
+}
+.avatarPhoto {
+    border-radius: 37px;
+    width: 73px;
+    height: 73px;
+    position: absolute;
+}
+#avatarMark {
+    top: 105px;
+    left: 116px;
+}
+#avatarVador {
+    top: 105px;
+    left: 239px;
+}
+#avatarMario {
+    top: 105px;
+    left: 361px;
+}
+#avatarElsa {
+    top: 178px;
+    left: 298px;
+}
+#avatarLisa {
+    top: 178px;
+    left: 179px;
+}
+.avatarSelection {
+    width: 83px;
+    height: 83px;
+    margin-left: -5px;
+    margin-top: -5px;
 }

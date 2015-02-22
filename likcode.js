@@ -23,6 +23,10 @@ var likcode = {
         $('#blueBarNAXAnchor').css("background", "black");
     },
 
+    clickIntro: function() {
+        $('#introModal').hide();
+    },
+
     loadSlides: function() {
         $('#introModalContent1').css("background", "url(" + chrome.extension.getURL("img/Home_page.png") + ")");
         $('#introModalContent2').css("background", "url(" + chrome.extension.getURL("img/page_1.png") + ")");

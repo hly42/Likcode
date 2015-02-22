@@ -6,6 +6,7 @@ var likcode = {
 
     appendCss: function() {
         $('head').append('<link href="' + chrome.extension.getURL("introModal.css") + '" rel="stylesheet" type="text/css">')
+            .append('<link href="' + chrome.extension.getURL("exoLevel.css") + '" rel="stylesheet" type="text/css">')
             .append('<link href="' + chrome.extension.getURL("exoFrame.css") + '" rel="stylesheet" type="text/css">');
     },
 
@@ -18,8 +19,12 @@ var likcode = {
                 $("#" + this.id + " img").attr("src", chrome.extension.getURL("./img/bouton.png"));
                 that.changecode();
             });
+            $('#bababa').load(chrome.extension.getURL("exoLevel.html"), function() {
+                $("#" + this.id + " img").attr("src", chrome.extension.getURL("./img/Mark_exclamation.png"));
+            });
             that.eventHandler();
             $('#introModalSlide').css("background", "url(" + chrome.extension.getURL("42c.png") + ")");
+
         });
     },
 

@@ -2,21 +2,41 @@ var likcode = {
     init: function() {
         this.appendCss();
         this.prependHtml();
-        this.changeNavBarColor();
     },
 
     appendCss: function() {
-        $('head').append('<link href="' + chrome.extension.getURL("introModal.css") + '" rel="stylesheet" type="text/css">');
+        $('head').append('<link href="' + chrome.extension.getURL("introModal.css") + '" rel="stylesheet" type="text/css">')
+            .append('<link href="' + chrome.extension.getURL("exoLevel.css") + '" rel="stylesheet" type="text/css">')
+            .append('<link href="' + chrome.extension.getURL("exoFrame.css") + '" rel="stylesheet" type="text/css">');
     },
 
     prependHtml: function() {
         var that = this;
         $('div:first').prepend('<div id="likcodeWrapper"></div>');
         $('#likcodeWrapper').load(chrome.extension.getURL("introModal.html"), function() {
-            that.eventHandler();
+            $(this).append('<div id="bababa"></div>');
+            $('#bababa').load(chrome.extension.getURL("exoFrame.html"), function() {
+                $("#" + this.id + " img").attr("src", chrome.extension.getURL("./img/bouton.png"));
+                that.changecode();
+                that.eventHandler();
+            });
+            $(this).append('<div id="exoLevelWrapper"></div>');
+            $('#exoLevelWrapper').load(chrome.extension.getURL("exoLevel.html"), function() {
+                $("#imgTips").attr("src", chrome.extension.getURL("./img/icone_texte_marc.png")).click(function() {
+                    $(this).hide();
+                    that.showExoFrame();
+                    that.hideOverlay();
+                });
+                $("#imglevel").attr("src", chrome.extension.getURL("./img/Mark_exclamation.png")).click(function() {
+                    $(this).hide();
+                    $("#imgTips").show();
+                });
+            });
             that.loadSlides();
             that.hideAvatarSelection();
             that.hideSlides([2, 3]);
+            that.hideExoFrame();
+            that.hideExoLevel();
         });
     },
 
@@ -56,11 +76,45 @@ var likcode = {
         $('.avatarSelection').hide();
     },
 
+    showExoFrame: function() {
+        $('#bababa').show();
+    },
+
+    hideExoFrame: function() {
+        $('#bababa').hide();
+    },
+
+    showExoLevel: function() {
+        $('#exoLevelWrapper').show();
+    },
+
+    hideExoLevel: function() {
+        $('#exoLevelWrapper').hide();
+    },
+
+    showOverlay: function() {
+        $('#introModalBackground').show();
+    },
+
+    hideOverlay: function() {
+        $('#introModalBackground').hide();
+    },
+
+    moveOverLay: function() {
+        $('#introModalBackground').css("top", "42px");
+    },
+
+    showCongrats: function() {
+        $('#congrats').show();
+    },
+
     eventHandler: function() {
         var that = this;
-        $('#introModalBackground').click(function() {
-            that.clickIntro();
-        });
+        //$('#introModalBackground').click(function() {
+        //    that.clickIntro();
+        //    that.showExoFrame();
+        //    that.hideExoLevel();
+        //});
         $('#buttonSlide1').click(function() {
             that.hideSlides([1]);
             that.showSlides([2]);
@@ -71,10 +125,34 @@ var likcode = {
         });
         $('#buttonSlide3').click(function() {
             that.hideSlides([3]);
+            //that.hideOverlay();
+            that.showExoLevel();
+            $('#imgTips').hide();
+            that.moveOverLay();
+            //that.showOverlay();
+            //that.showExoFrame();
         });
         $('.avatarPhoto').click(function() {
             $('.avatarSelection').hide();
             $("#" + this.id + " .avatarSelection").show();
+        });
+        $('#exoMentor').click(function() {
+            that.hideExoFrame();
+            that.showCongrats();
+            that.saveChanges();
+        });
+    },
+
+    changecode: function() {
+        $('#codebox').bind('keyup', function(){
+            $('#blueBarNAXAnchor')[0].style.cssText = $('#codebox')[0].value;
+        });
+    },
+
+    saveChanges: function() {
+        chrome.storage.local.set($('#blueBarNAXAnchor')[0].style, function() {
+            console.log(chrome.storage.local.get(null, function() {
+            }));
         });
     }
 };
